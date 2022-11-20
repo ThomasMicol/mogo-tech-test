@@ -1,0 +1,26 @@
+<div class="item-display-container" *ngIf="product !== null">
+
+  <div class="product-description-container">
+
+    <h1>
+      {{product.name}}
+    </h1>
+    <br />
+    <h2>
+      <!-- currency pipe displays dollar sign and to two decimal places -->
+      {{product.price | currency}}
+    </h2>
+  </div>
+  <div class="basket-button">
+    <div>
+      <label>
+        Quantity:
+        <!-- following line disallows negative inputs -->
+        <input [(ngModel)]="quantity" #ctrl="ngModel"  type="number" min="0" oninput="this.value = Math.abs(this.value)" />
+      </label>
+    </div>
+    <button (click)="addToBasket()">
+      Add to Basket
+    </button>
+  </div>
+</div>

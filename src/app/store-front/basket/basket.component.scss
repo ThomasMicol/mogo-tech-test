@@ -1,0 +1,40 @@
+.basket-container{
+  width: 25em;
+  padding: 0.5em;
+}
+
+.basket-item-container{
+  border-bottom: 1px solid grey;
+  padding: 1em 0;
+
+  .product-line{
+    display: flex;
+
+    .product-name{
+      width: 10em;
+    }
+
+    .product-amount{
+      width: 6em;
+      margin-right: 3em;
+    }
+  }
+
+  .remove-button-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 1em 1em 0 0
+  }
+
+}
+
+.totals-container{
+  padding: 1em 0;
+
+  .total-amount{
+    margin-left: 0.2em;
+    font-size: 2.5em;
+  }
+}
+
+

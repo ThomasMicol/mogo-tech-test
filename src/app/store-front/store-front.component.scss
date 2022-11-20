@@ -1,0 +1,13 @@
+.store-front-container{
+  // view height minus height of header to avoid scrolling
+  height: calc(100vh - 100px);
+}
+
+
+.product-grid{
+  padding: 1em;
+  display: grid;
+  // grid  auto cols span three columns of equal width then breakline
+  grid-template-columns: 1fr 1fr 1fr ;
+  column-gap: 1em;
+}

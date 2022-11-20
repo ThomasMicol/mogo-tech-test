@@ -1,0 +1,13 @@
+.header{
+  display: flex;
+  padding: 1em;
+
+  // view width minus added padding on both sides
+  width: calc(100vw - 2em);
+  background-color: rgb(150, 188, 237);
+
+  .store-name{
+    margin-left: 1em;
+    font-size: 1.5em;
+  }
+}

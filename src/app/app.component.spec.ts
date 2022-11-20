@@ -1,5 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
+import { AppEffects } from './app.effects';
+import { AppModule, reducers } from './app.module';
+import { metaReducerLocalCache } from './app.reducer';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -7,6 +16,13 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        AppModule,
+        StoreModule.forRoot(reducers, { metaReducers: [metaReducerLocalCache] }),
+        MatIconModule,
+        MatSidenavModule,
+        EffectsModule.forRoot([AppEffects]),
+        NoopAnimationsModule,]
     }).compileComponents();
   });
 
@@ -20,12 +36,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('mogo-tech-test');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('mogo-tech-test app is running!');
   });
 });

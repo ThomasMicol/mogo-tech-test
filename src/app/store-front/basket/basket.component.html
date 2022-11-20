@@ -1,0 +1,52 @@
+
+
+<div class="basket-container">
+
+  <div>
+    <h1>
+      Basket
+    </h1>
+  </div>
+
+  <!-- loop over the productsInBasket array to build up the list -->
+  <div *ngFor="let item of productsInBasket" class="basket-item-container">
+    <div class="product-line" >
+      <div class="product-name">
+
+        {{item.product.name}}
+      </div>
+      <div class="product-amount">
+         {{item.product.price | currency}} x {{item.quantity}}
+      </div>
+
+      <div>
+        <!-- total amount calculation per item -->
+        {{ item.product.price * item.quantity | currency}}
+      </div>
+
+    </div>
+    <div class="remove-button-container">
+      <button (click)="removeProduct(item.product, 1)">
+        Remove One
+      </button>
+      <button (click)="removeProduct(item.product, item.quantity)">
+        Remove All
+      </button>
+    </div>
+  </div>
+
+  <div class="totals-container">
+    Total:
+    <span class="total-amount">
+      <!-- this isnt very efficient. inside the reduce function it loops on the array.
+           this is causing a loop to be triggered on component redraws which can be quite slow if the number of
+           products in the basket were to grow. Alternative would be to  memoize the result so that we track if
+           the result has changed and only recalculate total when the result will have changed. -->
+      {{ getTotalAmount()  | currency }}
+    </span>
+  </div>
+
+
+
+
+</div>

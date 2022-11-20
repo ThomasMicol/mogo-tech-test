@@ -1,0 +1,23 @@
+.item-display-container{
+  padding:2em 3em;
+  // transparentize takes in a color and increases color alpha. used here to give a nicer to look at grey
+  border: 1px solid transparentize($color: grey, $amount: 0.5);
+  border-radius: 5px;
+  height: 15em;
+  text-align: center;
+}
+
+.product-description-container{
+  height: 13em;
+}
+
+.basket-button {
+  align-items: center;
+
+  display: flex;
+  button{
+    margin-left: 3em;
+  }
+
+}
+
